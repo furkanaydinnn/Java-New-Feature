@@ -25,6 +25,8 @@ public class App {
 		long count = cityList.stream().filter(c -> c.contains("an")).count();
 		System.out.println(count);
 		
+		System.out.println("demo..");
+		
 	}
 	
 
