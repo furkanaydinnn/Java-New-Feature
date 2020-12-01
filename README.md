@@ -1,4 +1,4 @@
 # Major new features of Java8 and later
 
-  Stream Api
+  Stream Api -> stream creation and operations
 
