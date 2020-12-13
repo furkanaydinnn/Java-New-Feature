@@ -3,6 +3,7 @@ package org.demo.streamApi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class App {
@@ -63,7 +64,7 @@ public class App {
 		 * The filter() method allows us to pick a stream of elements that satisfy a predicate.
 		 */
 		
-		cityList.stream().filter(city -> city.contains("T"));
+		cityList.stream().filter(city -> city.contains("T")).collect(Collectors.toList());
 		
 		
 	}
