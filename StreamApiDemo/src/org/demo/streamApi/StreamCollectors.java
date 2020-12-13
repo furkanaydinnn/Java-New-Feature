@@ -8,13 +8,15 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.ArrayList;
 
-
+/* some collector import */
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toUnmodifiableList;
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toSet;
 import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.counting;
 
 public class StreamCollectors {
 
@@ -76,7 +78,24 @@ public class StreamCollectors {
 		
 		/*
 		 * Collectors.joining()
+		 * Joining collector can be used for joining Stream<String> elements.
 		 */
+		
+		String resultStr = givenList.stream().collect(joining());
+		System.out.println(resultStr);
+		
+		System.out.println(givenList.stream().collect(joining(" ")));
+		
+		System.out.println(givenList.stream().collect(joining(" ","PRE-","-POST")));
+		
+		/*
+		 * Collectors.counting()
+		 * Counting is a simple collector that allows simply counting of all Stream elements.
+		 */
+		
+		System.out.println(givenList.stream().collect(counting()));
+		
+		
 
 	}
 
