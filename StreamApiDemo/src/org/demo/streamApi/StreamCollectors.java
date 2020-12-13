@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.ArrayList;
@@ -17,12 +18,17 @@ import static java.util.stream.Collectors.toMap;
 import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.minBy;
+import static java.util.stream.Collectors.maxBy;
+import static java.util.stream.Collectors.teeing;
 
 public class StreamCollectors {
 
 	public static void main(String[] args) {
 		
 		List<String> givenList = Arrays.asList("a", "bb", "ccc", "dd","bb");
+		List<Integer> givenIntList = Arrays.asList(1,2,456,67,3,4,2,1);
 		
 		/*
 		 * Collectors.toList()
@@ -95,6 +101,27 @@ public class StreamCollectors {
 		
 		System.out.println(givenList.stream().collect(counting()));
 		
+		/*
+		 * Collectors.groupingBy()
+		 * GroupingBy collector is used for grouping objects by some property and storing results in a Map instance.
+		 */
+		
+		
+		Map<Integer,List<String>> resultGrouping = givenList.stream().collect(groupingBy(String::length));
+		System.out.println(resultGrouping);
+		
+		resultGrouping.get(3).stream().forEach(s->System.out.println(s));
+		
+		/*
+		 * Collectors.maxBy()/minBy()
+		 */
+		
+		Optional<Integer> min = givenIntList.stream().collect(minBy(Integer::compareTo));
+		
+		Optional<Integer> max = givenIntList.stream().collect(maxBy(Integer::compareTo));
+		
+		/*Object rs = givenIntList.stream().collect(teeing(minBy(Integer::compareTo),
+				maxBy(Integer::compareTo),(min,max)-> Integer.valueOf(max+min))); */
 		
 
 	}
