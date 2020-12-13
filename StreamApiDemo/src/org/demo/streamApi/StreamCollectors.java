@@ -120,8 +120,8 @@ public class StreamCollectors {
 		
 		Optional<Integer> max = givenIntList.stream().collect(maxBy(Integer::compareTo));
 		
-		Object rs = givenIntList.stream().collect(teeing(minBy(Integer::compareTo),
-				maxBy(Integer::compareTo),(min,max)-> Integer.valueOf(max+min)));
+		/*Object rs = givenIntList.stream().collect(teeing(minBy(Integer::compareTo),
+				maxBy(Integer::compareTo),(min,max)-> Integer.valueOf(max+min))); */
 		
 
 	}
