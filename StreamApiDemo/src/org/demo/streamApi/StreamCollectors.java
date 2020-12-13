@@ -72,7 +72,11 @@ public class StreamCollectors {
 		 * Collectors.collectingAndThen()
 		 */
 		
-		givenList.stream().collect(collectingAndThen(toList(), HashSet::new));
+		Set<String> resultHashSet = givenList.stream().collect(collectingAndThen(toList(), HashSet::new));
+		
+		/*
+		 * Collectors.joining()
+		 */
 
 	}
 
